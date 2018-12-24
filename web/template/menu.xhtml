@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:body>
+        <ui:composition>
+            <p:layoutUnit position="west" size="175" header="Menu" collapsible="true">
+                <h:form>
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Dashboard" action="dashboard?faces-redirect=true"/>
+                            <p:menuitem rendered="#{loginController.username == null}" value="Login" action="login?faces-redirect=true"/>
+                            
+                            <p:menuitem value="Forum" action="forum?faces-redirect=true"/>
+                            <p:menuitem rendered="#{loginController.username != null}" value="Logout" action="logout?faces-redirect=true"/>
+                        </p:submenu>
+                    </p:menu>
+                </h:form>
+            </p:layoutUnit>
+        </ui:composition>
+    </h:body>
+</html>
+

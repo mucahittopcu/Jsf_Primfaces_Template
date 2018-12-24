@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>            
+            <p:growl id="growl" sticky="true" showDetail="true" life="3000"/>
+
+            <p:dialog header="Login" draggable="false" widgetVar="dlg" resizable="false" closable="false">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputLabel for="username" value="Username:" />
+                    <p:inputText id="username" value="#{loginController.username}" required="true" label="username" />
+
+                    <h:outputLabel for="password" value="Password:" />
+                    <p:password id="password" value="#{loginController.pass}" required="true" label="password" />
+
+                    <f:facet name="footer">
+                        <h:panelGrid columns="2" cellpadding="20">
+                            <p:commandButton value="Login" update="growl" action="#{loginController.action()}" />
+                            <h:outputLink value="register.xhtml" style="color: blue">Register new member</h:outputLink>
+                        </h:panelGrid>
+                    </f:facet>  
+                </h:panelGrid>
+            </p:dialog>
+        </h:form>
+
+        <script>
+            window.onload = function () {
+                PF('dlg').show();
+            }
+        </script>
+    </h:body>
+</html>
+
